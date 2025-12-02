@@ -1,34 +1,121 @@
 # dependencies (bun install)
 node_modules
+.pnp
+.pnp.js
 
 # output
 out
 dist
+build
 *.tgz
 
 # code coverage
 coverage
 *.lcov
+.nyc_output
 
 # logs
 logs
-_.log
-report.[0-9]_.[0-9]_.[0-9]_.[0-9]_.json
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+lerna-debug.log*
+report.[0-9]*.[0-9]*.[0-9]*.[0-9]*.json
 
 # dotenv environment variable files
 .env
+.env.*
+!.env.example
 .env.development.local
 .env.test.local
 .env.production.local
 .env.local
+.env.docker
 
 # caches
 .eslintcache
 .cache
 *.tsbuildinfo
+.npm
+.yarn/cache
+.yarn/unplugged
+.yarn/build-state.yml
+.yarn/install-state.gz
 
-# IntelliJ based IDEs
+# Next.js
+.next/
+.vercel/
+.swc/
+
+# Turbo
+.turbo/
+
+# TypeScript
+*.tsbuildinfo
+next-env.d.ts
+
+# Testing
+.vitest
+
+# Terraform
+*.tfstate
+*.tfstate.*
+*.tfvars
+*.tfvars.json
+.terraform/
+.terraform.lock.hcl
+crash.log
+crash.*.log
+override.tf
+override.tf.json
+*_override.tf
+*_override.tf.json
+
+# Docker
+docker-compose.override.yml
+.dockerignore
+
+# IDEs and Editors
 .idea
+.vscode/
+*.swp
+*.swo
+*.swn
+*~
+.project
+.classpath
+.c9/
+*.launch
+.settings/
+*.sublime-workspace
+.history/
 
-# Finder (MacOS) folder config
+# OS
 .DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+Thumbs.db
+Desktop.ini
+
+# Temporary files
+*.tmp
+*.temp
+*.bak
+*.backup
+*~
+.#*
+
+# Build artifacts
+*.pid
+*.seed
+*.pid.lock
+lib-cov
+
+# Optional files
+.npmrc
+.yarnrc
+.pnpm-debug.log*
