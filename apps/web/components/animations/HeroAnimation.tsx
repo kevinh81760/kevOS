@@ -9,7 +9,7 @@ export default function HeroAnimation() {
       <motion.div
         className="absolute left-1/2 whitespace-nowrap"
         style={{ x: "-50%" }}
-        initial={{ scale: 0.3, top: "50%", y: "-50%" }}
+        initial={{ scale: 0.3, top: "45%", y: "-50%" }}
         animate={{ scale: 1, top: 16, y: 0 }}
         transition={{
           scale: { duration: 1, delay: 0.8, ease: [0.22, 1, 0.36, 1] },
