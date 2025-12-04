@@ -18,7 +18,7 @@ export default function HeroAnimation() {
         }}
       >
         <TextReveal>
-          <h1 className="text-[7.5rem] font-bold text-white uppercase">KEVIN HA</h1>
+          <h1 className="text-[7.5rem] font-bold text-white uppercase tracking-tight">KEVIN HA</h1>
         </TextReveal>
       </motion.div>
     </div>

@@ -18,7 +18,7 @@ export default function NavBar() {
 
   return (
     <nav className="flex items-center justify-between p-6 border-b border-neutral-900">
-      <div className="flex gap-6">
+      <div className="flex gap-1">
         {items.map(item => (
           <NavItem
             key={item.href}
