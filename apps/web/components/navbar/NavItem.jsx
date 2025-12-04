@@ -6,8 +6,8 @@ export default function NavItem({ href, children, active }) {
     <Link
       href={href}
       className={cn(
-        "text-[20px] text-zinc-600 hover:text-white transition tracking-wide",
-        active && "text-white font-[450]"
+        "text-medium font-medium tracking-[0.08em] uppercase text-zinc-600 hover:text-white transition-colors text-center min-w-[120px] px-4 py-2 rounded-full",
+        active ? "text-white glass-nav" : "bg-transparent"
       )}
     >
       {children}
