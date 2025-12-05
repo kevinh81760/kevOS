@@ -1,12 +1,14 @@
 import Link from "next/link";
 import { cn } from "@/lib/utils";
+import { tabFadeTransition } from "@/components/animations/TabFade";
 
 export default function NavItem({ href, children, active }) {
   return (
     <Link
       href={href}
       className={cn(
-        "text-medium font-medium tracking-[0.08em] uppercase text-zinc-600 hover:text-zinc-400 text-center min-w-[120px] px-4 py-2 rounded-full",
+        tabFadeTransition,
+        "text-medium font-medium tracking-[0.08em] uppercase text-zinc-600 hover:text-zinc-400 text-center px-2 py-2 rounded-full",
         active ? "text-white hover:text-white" : "bg-transparent"
       )}
     >
