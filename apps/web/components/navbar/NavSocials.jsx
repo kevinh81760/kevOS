@@ -21,7 +21,7 @@ export default function NavSocials() {
             className="text-neutral-500 hover:text-white transition-colors"
             aria-label={label}
           >
-            <Icon size={25} strokeWidth={1.5} />
+            <Icon size={22} strokeWidth={1.5} />
           </a>
         </IconWiggle>
       ))}

@@ -17,7 +17,7 @@ export default function NavBar() {
   ];
 
   return (
-    <nav className="flex items-center justify-between p-6 border-b border-neutral-900">
+    <nav className="flex items-center justify-between p-6 border-b border-neutral-950">
       <div className="flex gap-3">
         {items.map(item => (
           <NavItem

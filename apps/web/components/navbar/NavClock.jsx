@@ -24,7 +24,7 @@ export default function NavClock() {
   }, []);
 
   return (
-    <span className="text-[23px] text-neutral-400 font-medium tabular-nums">
+    <span className="text-[20px] text-neutral-400 font-medium tabular-nums">
       {time}
     </span>
   );

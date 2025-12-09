@@ -7,18 +7,22 @@ interface TextRevealProps {
   delay?: number;
   duration?: number;
   className?: string;
+  direction?: "up" | "down";
 }
 
 export default function TextReveal({ 
   children, 
   delay = 0, 
   duration = 0.6,
-  className = "" 
+  className = "",
+  direction = "up"
 }: TextRevealProps) {
+  const initialY = direction === "down" ? "-100%" : "100%";
+  
   return (
     <div className={`overflow-hidden ${className}`}>
       <motion.div
-        initial={{ y: "100%" }}
+        initial={{ y: initialY }}
         animate={{ y: 0 }}
         transition={{ 
           duration, 
