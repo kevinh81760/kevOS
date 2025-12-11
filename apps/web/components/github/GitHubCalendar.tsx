@@ -15,10 +15,26 @@ export default function GitHubCalendar({ className = "" }: GitHubCalendarWrapper
           .github-calendar-wrapper svg text[dominant-baseline="hanging"] {
             fill: #a1a1aa !important;
           }
+          .github-calendar-wrapper {
+            display: flex;
+            justify-content: center;
+            width: 100%;
+            overflow: hidden;
+          }
+          .github-calendar-wrapper > * {
+            display: flex;
+            justify-content: center;
+            width: 100%;
+          }
+          .github-calendar-wrapper svg {
+            display: block;
+            margin-left: auto;
+            margin-right: auto;
+          }
         `
       }} />
       <motion.div
-        className={`w-full max-w-[1400px] bg-[#111111] border border-[#242424] rounded-lg p-6 md:p-8 lg:p-10 ${className}`}
+        className={`w-full bg-[#111111] border border-[#242424] rounded-lg p-6 md:p-8 lg:p-10 mx-[calc(1in+1.5rem)] ${className}`}
         initial={{ opacity: 0, y: 20 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{

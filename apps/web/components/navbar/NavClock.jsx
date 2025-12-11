@@ -4,8 +4,11 @@ import { useState, useEffect } from "react";
 
 export default function NavClock() {
   const [time, setTime] = useState("");
+  const [mounted, setMounted] = useState(false);
 
   useEffect(() => {
+    setMounted(true);
+    
     const updateTime = () => {
       const now = new Date();
       setTime(
@@ -25,7 +28,7 @@ export default function NavClock() {
 
   return (
     <span className="text-[20px] text-neutral-400 font-medium tabular-nums">
-      {time}
+      {mounted ? time : ""}
     </span>
   );
 }
