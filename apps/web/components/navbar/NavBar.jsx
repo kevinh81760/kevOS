@@ -21,7 +21,7 @@ export default function NavBar() {
 
   // Determine if navbar should be hidden
   // Always visible at top, hide when scrolling down past threshold, show when scrolling up
-  const shouldHide = !isAtTop && isScrollingDown && scrollY > 100;
+  const shouldHide = !isAtTop && isScrollingDown && scrollY > 160;
 
   return (
     <nav

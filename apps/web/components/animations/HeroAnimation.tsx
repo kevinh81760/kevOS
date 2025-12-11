@@ -32,7 +32,7 @@ export default function HeroAnimation() {
           </TextReveal>
         </div>
         <TextReveal delay={2.4} duration={0.4} className="ml-auto -translate-x-[1in]" direction="down">
-          <span className="text-white text-2xl font-normal tracking-wide">@ 24Labs</span>
+          <span className="text-white text-2xl font-normal tracking-wide">San Francisco, CA</span>
         </TextReveal>
       </div>
     </div>
