@@ -20,3 +20,5 @@ export default function SmoothScroll({ children }: SmoothScrollProps) {
     </ReactLenis>
   );
 }
+
+

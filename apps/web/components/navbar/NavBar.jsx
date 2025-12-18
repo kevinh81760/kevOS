@@ -20,8 +20,10 @@ export default function NavBar() {
   ];
 
   // Determine if navbar should be hidden
-  // Always visible at top, hide when scrolling down past threshold, show when scrolling up
-  const shouldHide = !isAtTop && isScrollingDown && scrollY > 160;
+  // Only apply hide/show animation on homepage
+  // On other pages, navbar remains stationary and always visible
+  const isHomePage = pathname === "/";
+  const shouldHide = isHomePage && !isAtTop && isScrollingDown && scrollY > 160;
 
   return (
     <nav
