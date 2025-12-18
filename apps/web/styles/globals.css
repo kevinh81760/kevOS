@@ -13,3 +13,41 @@ body {
 .bg-gradient-radial {
   background-image: radial-gradient(circle, var(--tw-gradient-stops));
 }
+
+/* Hide scrollbars globally while maintaining scroll functionality */
+* {
+  /* Firefox */
+  scrollbar-width: none;
+  /* IE and Edge */
+  -ms-overflow-style: none;
+}
+
+*::-webkit-scrollbar {
+  /* Chrome, Safari, Opera */
+  display: none;
+}
+
+/* Utility class for explicit scrollbar hiding */
+.scrollbar-hide {
+  scrollbar-width: none; /* Firefox */
+  -ms-overflow-style: none; /* IE and Edge */
+}
+
+.scrollbar-hide::-webkit-scrollbar {
+  display: none; /* Chrome, Safari, Opera */
+}
+
+/* Explicitly hide scrollbars on html and body elements */
+html,
+body {
+  /* Firefox */
+  scrollbar-width: none;
+  /* IE and Edge */
+  -ms-overflow-style: none;
+}
+
+html::-webkit-scrollbar,
+body::-webkit-scrollbar {
+  /* Chrome, Safari, Opera */
+  display: none;
+}

@@ -1,6 +1,7 @@
 "use client";
 
 import { useEffect, useRef } from "react";
+import Lenis from "lenis";
 import { Experience } from "../data";
 
 interface ExperienceContentProps {
@@ -87,10 +88,36 @@ export default function ExperienceContent({
     };
   }, [experiences, scrollContainerRef]);
 
+  // Initialize Lenis smooth scroll for the content container
+  useEffect(() => {
+    const container = scrollContainerRef.current;
+    if (!container) return;
+
+    const lenis = new Lenis({
+      wrapper: container,
+      content: container,
+      duration: 1.2,
+      easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
+      smoothWheel: true,
+      wheelMultiplier: 1,
+    });
+
+    function raf(time: number) {
+      lenis.raf(time);
+      requestAnimationFrame(raf);
+    }
+
+    requestAnimationFrame(raf);
+
+    return () => {
+      lenis.destroy();
+    };
+  }, [scrollContainerRef]);
+
   return (
     <div
       ref={scrollContainerRef}
-      className="flex-1 h-full overflow-y-auto scrollbar-hide"
+      className="flex-1 h-full min-h-0 overflow-y-auto scrollbar-hide"
     >
       <div className="space-y-32 pb-32 pt-12">
         {experiences.map((experience) => (
