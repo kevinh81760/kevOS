@@ -114,6 +114,60 @@ export default function ExperienceContent({
     };
   }, [scrollContainerRef]);
 
+  // Set initial scroll position to 0 on mount
+  useEffect(() => {
+    const container = scrollContainerRef.current;
+    if (!container) return;
+
+    // Set scroll position to 0 after a brief delay to ensure Lenis is initialized
+    const timeoutId = setTimeout(() => {
+      container.scrollTop = 0;
+    }, 0);
+
+    return () => {
+      clearTimeout(timeoutId);
+    };
+  }, [scrollContainerRef]);
+
+  // Prevent scrolling above the initial position (scrollTop = 0)
+  useEffect(() => {
+    const container = scrollContainerRef.current;
+    if (!container) return;
+
+    let rafId: number | null = null;
+    let isChecking = false;
+
+    const checkScroll = () => {
+      if (container.scrollTop < 0) {
+        container.scrollTop = 0;
+      }
+      isChecking = false;
+      rafId = null;
+    };
+
+    const handleScroll = () => {
+      // Clamp scrollTop to minimum of 0
+      if (container.scrollTop < 0) {
+        container.scrollTop = 0;
+      }
+      
+      // Also check on next animation frame for Lenis compatibility
+      if (!isChecking && rafId === null) {
+        isChecking = true;
+        rafId = requestAnimationFrame(checkScroll);
+      }
+    };
+
+    container.addEventListener("scroll", handleScroll, { passive: true });
+
+    return () => {
+      container.removeEventListener("scroll", handleScroll);
+      if (rafId !== null) {
+        cancelAnimationFrame(rafId);
+      }
+    };
+  }, [scrollContainerRef]);
+
   return (
     <div
       ref={scrollContainerRef}
@@ -126,7 +180,7 @@ export default function ExperienceContent({
             id={experience.id}
             className="scroll-mt-24"
           >
-            <div className="max-w-3xl">
+            <div className="max-w-3xl mt-[-2px]">
               {/* Title */}
               <h2 className="text-4xl font-medium text-white tracking-wide mb-3">
                 {experience.title}
@@ -134,7 +188,7 @@ export default function ExperienceContent({
 
               {/* Company and Date */}
               <p className="text-zinc-400 text-base mb-10">
-                {experience.company} | {experience.dateRange}
+                {experience.company} | {experience.dates}
               </p>
 
               {/* What I Did */}

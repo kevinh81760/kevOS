@@ -5,8 +5,22 @@
   --font-sans: "Helvetica Neue", Helvetica, Arial, sans-serif;
 }
 
+html {
+  background: linear-gradient(-45deg, #000000, #0a0a0a, #121212, #0d0d0d);
+  background-size: cover;
+  background-position: center;
+  min-height: 120vh;
+  width: 100%;
+  margin: 0;
+  padding: 0;
+}
+
 body {
   font-weight: 400;
+  background-color: transparent;
+  min-height: 120vh;
+  margin: 0;
+  padding: 0;
 }
 
 /* Radial gradient utility */
@@ -51,3 +65,50 @@ body::-webkit-scrollbar {
   /* Chrome, Safari, Opera */
   display: none;
 }
+
+.glitch {
+  position: relative;
+  animation: glitch 0.6s infinite;
+}
+
+.glitch::before,
+.glitch::after {
+  content: "loading";
+  position: absolute;
+  inset: 0;
+  opacity: 0.8;
+}
+
+.glitch::before {
+  color: #ff004f;
+  transform: translate(-1px, 0);
+  animation: glitchTop 0.6s infinite linear;
+}
+
+.glitch::after {
+  color: #00eaff;
+  transform: translate(1px, 0);
+  animation: glitchBottom 0.6s infinite linear;
+}
+
+@keyframes glitch {
+  0% { transform: translate(0); }
+  20% { transform: translate(-1px, 1px); }
+  40% { transform: translate(1px, -1px); }
+  60% { transform: translate(-1px, 0); }
+  80% { transform: translate(1px, 1px); }
+  100% { transform: translate(0); }
+}
+
+@keyframes glitchTop {
+  0% { clip-path: inset(0 0 80% 0); }
+  50% { clip-path: inset(0 0 20% 0); }
+  100% { clip-path: inset(0 0 80% 0); }
+}
+
+@keyframes glitchBottom {
+  0% { clip-path: inset(80% 0 0 0); }
+  50% { clip-path: inset(20% 0 0 0); }
+  100% { clip-path: inset(80% 0 0 0); }
+}
+

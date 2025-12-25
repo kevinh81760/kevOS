@@ -1,7 +1,7 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { useEffect, useRef, useState } from "react";
+import { useEffect, useLayoutEffect, useRef, useState } from "react";
 import { Experience } from "../data";
 
 interface ExperienceSidebarProps {
@@ -19,26 +19,48 @@ export default function ExperienceSidebar({
   const barHeight = 20; // Height of the white bar
   const buttonRefs = useRef<(HTMLButtonElement | null)[]>([]);
   const containerRef = useRef<HTMLDivElement | null>(null);
-  const [barY, setBarY] = useState(0);
+  const isInitialMount = useRef(true);
+  
+  // Estimate initial position: button height (32px) + spacing (16px) = 48px per item
+  // Button center is at index * 48 + 16 (half of button height)
+  // Bar Y is button center - barHeight / 2
+  const estimatedInitialY = activeIndex * 48 + 16 - barHeight / 2;
+  const [barY, setBarY] = useState(estimatedInitialY);
+  const [hasSetInitialPosition, setHasSetInitialPosition] = useState(false);
 
-  // Measure actual button positions for accurate alignment
+  // Calculate bar position helper function
+  const updateBarPosition = () => {
+    const activeButton = buttonRefs.current[activeIndex];
+    const container = containerRef.current;
+    
+    if (activeButton && container) {
+      const buttonRect = activeButton.getBoundingClientRect();
+      const containerRect = container.getBoundingClientRect();
+      const relativeTop = buttonRect.top - containerRect.top;
+      const buttonCenter = relativeTop + buttonRect.height / 2;
+      const newBarY = buttonCenter - barHeight / 2;
+      setBarY(newBarY);
+    }
+  };
+
+  // Set initial position synchronously before paint (no animation)
+  useLayoutEffect(() => {
+    if (isInitialMount.current) {
+      updateBarPosition();
+      // Use setTimeout to ensure position is set before enabling animations
+      setTimeout(() => {
+        setHasSetInitialPosition(true);
+      }, 0);
+      isInitialMount.current = false;
+    }
+  }, []);
+
+  // Measure actual button positions for accurate alignment on subsequent changes
   useEffect(() => {
-    const updateBarPosition = () => {
-      const activeButton = buttonRefs.current[activeIndex];
-      const container = containerRef.current;
-      
-      if (activeButton && container) {
-        const buttonRect = activeButton.getBoundingClientRect();
-        const containerRect = container.getBoundingClientRect();
-        const relativeTop = buttonRect.top - containerRect.top;
-        const buttonCenter = relativeTop + buttonRect.height / 2;
-        const newBarY = buttonCenter - barHeight / 2;
-        setBarY(newBarY);
-      }
-    };
-
-    // Update immediately
-    updateBarPosition();
+    // Skip on initial mount since useLayoutEffect handles it
+    if (!isInitialMount.current) {
+      updateBarPosition();
+    }
 
     // Update on resize
     window.addEventListener("resize", updateBarPosition);
@@ -51,15 +73,19 @@ export default function ExperienceSidebar({
           {/* White bar indicator */}
           <motion.div
             className="absolute bg-white"
-            initial={false}
+            initial={{ y: barY }}
             animate={{
               y: barY,
             }}
-            transition={{
-              type: "spring",
-              stiffness: 300,
-              damping: 30,
-            }}
+            transition={
+              !hasSetInitialPosition
+                ? { duration: 0 }
+                : {
+                    type: "spring",
+                    stiffness: 300,
+                    damping: 30,
+                  }
+            }
             style={{
               left: "0px",
               width: "3px",
