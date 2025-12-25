@@ -6,7 +6,7 @@ import AppContent from "./AppContent";
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
     <html lang="en">
-      <body className="text-white relative min-h-screen overflow-x-hidden bg-transparent">
+      <body className="text-white relative min-h-screen overflow-x-hidden bg-transparent" suppressHydrationWarning>
         <LoadingProvider>
           <LoadingScreen />
           <AppContent>{children}</AppContent>

@@ -41,7 +41,8 @@ export default function LoadingScreen() {
     };
   }, [mounted, setIsLoading]);
 
-  if (!mounted || !visible) return null;
+  // Return null during SSR and before mount to prevent hydration mismatch
+  if (typeof window === "undefined" || !mounted || !visible) return null;
 
   return (
     <div className="fixed inset-0 z-9999 flex items-center justify-center pointer-events-none">

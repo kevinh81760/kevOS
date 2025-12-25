@@ -22,18 +22,53 @@ export default function HomePage() {
         </section>
         
         {/* Section 2 */}
-        <section className="min-h-[80vh] flex items-center justify-center px-6 py-20">
-          <FadeIn className="text-center" delay={0.2} duration={0.8}>
-            <h2 className="text-7xl font-black text-white tracking-wide">Selected Works</h2>
+        <section className="min-h-[80vh] flex flex-col items-center justify-center px-6 py-20 pt-50">
+          <FadeIn className="text-center mb-24" delay={0.2} duration={0.8}>
+            <h2 className="text-7xl font-black text-white tracking-tighter" style={{ fontWeight: 900, letterSpacing: '-0.05em' }}>SELECTED WORKS</h2>
           </FadeIn>
-        </section>
-        
-        {/* Section 3 */}
-        <section className="min-h-[40vh] flex items-center justify-center px-6 py-20">
-          <div className="text-center">
-            <h2 className="text-4xl font-medium text-white tracking-wide mb-4">Section Three</h2>
-            <p className="text-zinc-600 text-lg">Scroll up to see the navbar reappear</p>
+          
+          <div className="w-full max-w-7xl grid grid-cols-1 md:grid-cols-2 gap-8 mb-12">
+            {/* Project Card 1 */}
+            <FadeIn delay={0.4} duration={0.8}>
+              <div className="group relative rounded-lg overflow-hidden bg-[#111111] border border-[#242424]">
+                {/* Image Placeholder */}
+                <div className="relative h-[400px] bg-gradient-to-br from-zinc-800 to-zinc-900 flex items-center justify-center">
+                  <div className="absolute inset-0 bg-zinc-800/50"></div>
+                  <span className="text-zinc-500 text-sm uppercase tracking-wide">Project Image</span>
+                </div>
+                
+                {/* Project Info */}
+                <div className="p-6">
+                  <h3 className="text-2xl font-bold text-white mb-2">PROJECT TITLE</h3>
+                  <p className="text-zinc-400 text-sm uppercase tracking-wide">CATEGORY | 2024</p>
+                </div>
+              </div>
+            </FadeIn>
+
+            {/* Project Card 2 */}
+            <FadeIn delay={0.6} duration={0.8}>
+              <div className="group relative rounded-lg overflow-hidden bg-[#111111] border border-[#242424]">
+                {/* Image Placeholder */}
+                <div className="relative h-[400px] bg-gradient-to-br from-zinc-800 to-zinc-900 flex items-center justify-center">
+                  <div className="absolute inset-0 bg-zinc-800/50"></div>
+                  <span className="text-zinc-500 text-sm uppercase tracking-wide">Project Image</span>
+                </div>
+                
+                {/* Project Info */}
+                <div className="p-6">
+                  <h3 className="text-2xl font-bold text-white mb-2">PROJECT TITLE</h3>
+                  <p className="text-zinc-400 text-sm uppercase tracking-wide">CATEGORY | 2024</p>
+                </div>
+              </div>
+            </FadeIn>
           </div>
+
+          {/* See all work link */}
+          <FadeIn delay={0.8} duration={0.8}>
+            <a href="#" className="text-white text-lg hover:text-zinc-400 transition-colors">
+              See all work →
+            </a>
+          </FadeIn>
         </section>
       </div>
     </div>
