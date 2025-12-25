@@ -2,12 +2,12 @@
  * Experience Section Components
  * 
  * Barrel export file for easy imports
- * Usage: import { ExperienceLayout, ExperienceSection } from '@/components/experience';
+ * Usage: import { ExperienceSection, AnimatedHeader } from '@/components/experience';
+ * 
+ * Note: ExperienceContent and ExperienceSidebar are page-specific components
+ * located in app/experience/components/ and should be imported from there.
  */
 
-export { ExperienceLayout } from './ExperienceLayout';
-export { ExperienceSidebar } from './ExperienceSidebar';
-export { ExperienceContent } from './ExperienceContent';
 export { ExperienceSection } from './ExperienceSection';
 export { SidebarItem } from './SidebarItem';
 export { AnimatedHeader } from './AnimatedHeader';

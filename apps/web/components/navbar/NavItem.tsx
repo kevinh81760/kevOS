@@ -2,7 +2,13 @@ import Link from "next/link";
 import { cn } from "@/lib/utils";
 import { tabFadeTransition } from "@/components/animations/TabFade";
 
-export default function NavItem({ href, children, active }) {
+interface NavItemProps {
+  href: string;
+  children: React.ReactNode;
+  active: boolean;
+}
+
+export default function NavItem({ href, children, active }: NavItemProps) {
   return (
     <Link
       href={href}
@@ -16,3 +22,4 @@ export default function NavItem({ href, children, active }) {
     </Link>
   );
 }
+

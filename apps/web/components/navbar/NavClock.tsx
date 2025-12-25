@@ -3,8 +3,8 @@
 import { useState, useEffect } from "react";
 
 export default function NavClock() {
-  const [time, setTime] = useState("");
-  const [mounted, setMounted] = useState(false);
+  const [time, setTime] = useState<string>("");
+  const [mounted, setMounted] = useState<boolean>(false);
 
   useEffect(() => {
     setMounted(true);

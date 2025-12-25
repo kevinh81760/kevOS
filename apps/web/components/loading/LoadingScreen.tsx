@@ -1,40 +1,53 @@
 "use client";
 
 import { useEffect, useState } from "react";
+import { useLoading } from "@/components/providers/LoadingProvider";
 
 export default function LoadingScreen() {
-  const [phase, setPhase] = useState<"loading" | "glitch" | "done">("loading");
+  const [mounted, setMounted] = useState(false);
+  const [visible, setVisible] = useState(false);
+  const { setIsLoading } = useLoading();
 
   useEffect(() => {
-    const glitchTimer = setTimeout(() => {
-      setPhase("glitch");
+    setMounted(true);
+  }, []);
+
+  useEffect(() => {
+    if (!mounted) return;
+
+    const hasSeenLoader = typeof window !== "undefined" && sessionStorage.getItem("kevos_loaded");
+
+    if (hasSeenLoader) {
+      setIsLoading(false);
+      return;
+    }
+
+    // Brief delay before showing loading text (black screen first)
+    const showTimer = setTimeout(() => {
+      setVisible(true);
     }, 1200);
 
     const doneTimer = setTimeout(() => {
-      setPhase("done");
-    }, 2200);
+      if (typeof window !== "undefined") {
+        sessionStorage.setItem("kevos_loaded", "true");
+      }
+      setVisible(false);
+      setIsLoading(false);
+    }, 4400); // 1200ms delay + 3200ms
 
     return () => {
-      clearTimeout(glitchTimer);
+      clearTimeout(showTimer);
       clearTimeout(doneTimer);
     };
-  }, []);
+  }, [mounted, setIsLoading]);
 
-  if (phase === "done") return null;
+  if (!mounted || !visible) return null;
 
   return (
     <div className="fixed inset-0 z-[9999] flex items-center justify-center pointer-events-none">
-      {phase === "loading" && (
-        <span className="text-xs tracking-[0.4em] uppercase text-white animate-pulse">
-          loading
-        </span>
-      )}
-
-      {phase === "glitch" && (
-        <span className="glitch text-xs tracking-[0.4em] uppercase text-white">
-          loading
-        </span>
-      )}
+      <span className="text-3xl font-black tracking-tighter uppercase text-white">
+        loading
+      </span>
     </div>
   );
 }
