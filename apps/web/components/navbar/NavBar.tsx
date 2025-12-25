@@ -16,7 +16,7 @@ export default function NavBar() {
     { label: "EXPERIENCE", href: "/experience" },
     { label: "PROJECTS", href: "/projects" },
     { label: "SUITE", href: "/suite" },
-    { label: "ABOUT", href: "/about" },
+    { label: "GALLERY", href: "/gallery" },
   ];
 
   // Determine if navbar should be hidden

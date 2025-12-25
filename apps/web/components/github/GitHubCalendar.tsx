@@ -78,9 +78,9 @@ export default function GitHubCalendar({ className = "" }: GitHubCalendarWrapper
           <GitHubCalendarLib
             username="kevinh81760"
             colorScheme="dark"
-            blockSize={18}
-            blockMargin={4.9}
-            fontSize={18}
+            blockSize={20}
+            blockMargin={5}
+            fontSize={20}
             theme={{
               dark: ["#0a0a0a", "#0e4429", "#006d32", "#26a641", "#39d353"],
             }}

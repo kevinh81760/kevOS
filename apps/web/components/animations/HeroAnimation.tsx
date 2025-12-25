@@ -54,16 +54,16 @@ export default function HeroAnimation() {
         </TextReveal>
       </motion.div>
       <div className="absolute top-[calc(7.5rem+16px+2.5rem+2rem)] left-0 w-full flex items-center px-6">
-        <TextReveal delay={2.4} duration={0.4} direction="down" className="translate-x-[calc(1in-10px)]" skipAnimation={!shouldAnimate}>
-          <span className="text-white text-[29px] font-medium tracking-wide">Product Engineer</span>
+        <TextReveal delay={2.4} duration={0.4} direction="down" className="translate-x-[calc(1in-10px-50px)]" skipAnimation={!shouldAnimate}>
+          <span className="text-white text-[34px] font-medium tracking-wide">Product Engineer</span>
         </TextReveal>
         <div className="absolute left-1/2 -translate-x-1/2 flex items-center justify-center">
           <TextReveal delay={2.2} duration={0.4} direction="down" skipAnimation={!shouldAnimate}>
             <StarIcon size={32} />
           </TextReveal>
         </div>
-        <TextReveal delay={2.4} duration={0.4} className="ml-auto -translate-x-[calc(1in-10px)]" direction="down" skipAnimation={!shouldAnimate}>
-          <span className="text-white text-[29px] font-medium tracking-wide">San Francisco, CA</span>
+        <TextReveal delay={2.4} duration={0.4} className="ml-auto -translate-x-[calc(1in-10px-50px)]" direction="down" skipAnimation={!shouldAnimate}>
+          <span className="text-white text-[34px] font-medium tracking-wide">San Francisco, CA</span>
         </TextReveal>
       </div>
     </div>

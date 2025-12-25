@@ -44,7 +44,7 @@ export default function LoadingScreen() {
   if (!mounted || !visible) return null;
 
   return (
-    <div className="fixed inset-0 z-[9999] flex items-center justify-center pointer-events-none">
+    <div className="fixed inset-0 z-9999 flex items-center justify-center pointer-events-none">
       <span className="text-3xl font-black tracking-tighter uppercase text-white">
         loading
       </span>
