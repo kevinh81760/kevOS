@@ -60,7 +60,7 @@ export default function ExperiencePage() {
       {/* Page container */}
       <div className="h-[calc(100vh-80px)] overflow-hidden">
         <div className="h-full max-w-7xl mx-auto">
-          <div className="h-full flex pl-[280px] pr-6">
+          <div className="h-full flex pl-[265px] pr-6">
             {/* Right Content - Scrollable container */}
             <ExperienceContent
               experiences={experiences}

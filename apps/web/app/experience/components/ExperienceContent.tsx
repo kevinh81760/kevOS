@@ -7,7 +7,7 @@ import { Experience } from "../data";
 interface ExperienceContentProps {
   experiences: Experience[];
   onActiveChange: (id: string) => void;
-  scrollContainerRef: React.RefObject<HTMLDivElement>;
+  scrollContainerRef: React.RefObject<HTMLDivElement | null>;
 }
 
 export default function ExperienceContent({

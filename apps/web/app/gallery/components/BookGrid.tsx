@@ -10,10 +10,38 @@ export default function BookGrid({ className = "" }: BookGridProps) {
   const bookSources = ["/Grid System Book.jpg", "/Atomic Habits Picture.jpg", "/Pragmatic Programmer.jpg"];
 
   return (
-    <div className={`grid grid-cols-1 md:grid-cols-3 gap-3 ${className}`} style={{ marginLeft: 0 }}>
-      {bookSources.map((src, index) => (
-        <BookItem key={index} index={index} src={src} />
-      ))}
+    <div className={className} style={{ marginLeft: 0 }}>
+      <div className="grid grid-cols-1 md:grid-cols-3 gap-3">
+        {bookSources.map((src, index) => (
+          <div key={index}>
+            <BookItem index={index} src={src} />
+            {index === 0 && (
+              <div className="mt-4 text-white">
+                <h2 className="text-xl font-medium mb-2">Grid Systems: Principles of Organizing Type</h2>
+                <p className="text-sm text-white/80 leading-relaxed">
+                  A comprehensive guide that explores the complexities and potential of grid composition in typographic design, providing a step-by-step approach to creating dynamic and effective layouts.
+                </p>
+              </div>
+            )}
+            {index === 1 && (
+              <div className="mt-4 text-white">
+                <h2 className="text-xl font-medium mb-2">Atomic Habits</h2>
+                <p className="text-sm text-white/80 leading-relaxed">
+                  An easy and proven way to build good habits and break bad ones through tiny changes that deliver remarkable results.
+                </p>
+              </div>
+            )}
+            {index === 2 && (
+              <div className="mt-4 text-white">
+                <h2 className="text-xl font-medium mb-2">The Pragmatic Programmer</h2>
+                <p className="text-sm text-white/80 leading-relaxed">
+                  A practical guide to becoming a more effective programmer by mastering the craft of software development and engineering.
+                </p>
+              </div>
+            )}
+          </div>
+        ))}
+      </div>
     </div>
   );
 }
