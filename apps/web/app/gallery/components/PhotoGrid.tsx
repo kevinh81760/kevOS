@@ -7,7 +7,7 @@ interface PhotoGridProps {
 }
 
 export default function PhotoGrid({ className = "" }: PhotoGridProps) {
-  const imageSources = ["/gal1.jpg", "/gal2.JPG", "/gal3.jpg", "/gal4.jpg", "/gal5.png", "/gal6.jpg"];
+  const imageSources = ["/gal1.jpg", "/gal2.JPG", "/gal3.jpg", "/gal5.PNG", "/gal4.jpg", "/gal7.JPG"];
 
   return (
     <div className={`grid grid-cols-1 md:grid-cols-3 gap-0 pr-4 -ml-[10px] -mt-[20px] ${className}`}>
