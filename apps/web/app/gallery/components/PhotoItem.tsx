@@ -13,7 +13,7 @@ export default function PhotoItem({ index, src }: PhotoItemProps) {
   let imageStyle: { objectPosition: string } | undefined;
   if (index === 0 || index === 3) {
     // Photos 1 and 4: 45px offset (30px + 15px additional)
-    imageStyle = { objectPosition: 'center calc(50% - 70px)' };
+    imageStyle = { objectPosition: 'center calc(50% - 55px)' };
   } else if (index === 5) {
     // Photo 6: 30px offset (keep current)
     imageStyle = { objectPosition: 'center calc(50% - 30px)' };
@@ -21,7 +21,7 @@ export default function PhotoItem({ index, src }: PhotoItemProps) {
 
   return (
     <HoverScale scale={1.02} duration={0.5}>
-      <div className="relative aspect-[4/4] rounded-lg overflow-hidden bg-[#111111] transition-colors -m-[20px] scale-[0.855]">
+      <div className="relative aspect-[4/4] rounded-lg overflow-hidden bg-[#111111] transition-colors">
         {src ? (
           <Image
             src={src}
