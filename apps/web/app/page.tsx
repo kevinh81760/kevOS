@@ -32,7 +32,7 @@ export default function HomePage() {
           <div className="w-full max-w-7xl grid grid-cols-1 md:grid-cols-2 gap-8 mb-12">
             {/* Project Card 1 */}
             <FadeIn delay={0.4} duration={0.8}>
-              <HoverScale scale={1.02} duration={0.4}>
+              <HoverScale scale={1.02} duration={0.5}>
                 <a
                   href="https://pointpal.ai"
                   target="_blank"
@@ -53,7 +53,7 @@ export default function HomePage() {
                     {/* Project Info */}
                     <div className="p-6">
                       <h3 className="text-2xl font-bold text-white mb-2">PointPal</h3>
-                      <p className="text-zinc-400 text-sm uppercase tracking-wide">Travel Platform</p>
+                      <p className="text-zinc-400 text-sm uppercase tracking-wide">AI Travel Platform</p>
                     </div>
                   </div>
                 </a>
@@ -62,7 +62,7 @@ export default function HomePage() {
 
             {/* Project Card 2 */}
             <FadeIn delay={0.6} duration={0.8}>
-              <HoverScale scale={1.02} duration={0.4}>
+              <HoverScale scale={1.02} duration={0.5}>
                 <div className="group relative rounded-lg overflow-hidden bg-[#111111] border border-[#242424] hover:border-[#2a2a2a] transition-colors">
                   {/* Image Placeholder */}
                   <div className="relative h-[400px] bg-gradient-to-br from-zinc-800 to-zinc-900 flex items-center justify-center">

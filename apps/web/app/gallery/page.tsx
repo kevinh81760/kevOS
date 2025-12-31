@@ -1,8 +1,13 @@
+import GalleryHeader from "./components/GalleryHeader";
+import PhotoGrid from "./components/PhotoGrid";
+
 export default function GalleryPage() {
   return (
-    <div className="flex flex-col items-center justify-center min-h-[calc(100vh-100px)]">
-      <h1 className="text-4xl font-medium text-white tracking-wide">GALLERY</h1>
-      <p className="text-zinc-600 mt-4 text-lg">Coming Soon</p>
+    <div className="min-h-[calc(100vh-100px)] px-6 py-20">
+      <div className="max-w-7xl mx-auto">
+        <GalleryHeader className="mb-12" />
+        <PhotoGrid />
+      </div>
     </div>
   );
 }
