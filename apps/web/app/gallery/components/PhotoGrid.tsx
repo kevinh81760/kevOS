@@ -7,12 +7,12 @@ interface PhotoGridProps {
 }
 
 export default function PhotoGrid({ className = "" }: PhotoGridProps) {
-  const photos = Array.from({ length: 6 }, (_, i) => i);
+  const imageSources = ["/gal1.jpg", "/gal2.JPG", "/gal3.jpg", "/gal4.jpg", "/gal5.png", "/gal6.jpg"];
 
   return (
     <div className={`grid grid-cols-1 md:grid-cols-3 gap-0 pr-4 -ml-[10px] -mt-[20px] ${className}`}>
-      {photos.map((index) => (
-        <PhotoItem key={index} index={index} />
+      {imageSources.map((src, index) => (
+        <PhotoItem key={index} index={index} src={src} />
       ))}
     </div>
   );
