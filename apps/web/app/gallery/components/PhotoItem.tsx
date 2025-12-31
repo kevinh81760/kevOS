@@ -20,7 +20,7 @@ export default function PhotoItem({ index, src }: PhotoItemProps) {
   }
 
   return (
-    <HoverScale scale={1.02} duration={0.5}>
+    <HoverScale scale={1.02} duration={.5}>
       <div className="relative aspect-[4/4] rounded-lg overflow-hidden bg-[#111111] transition-colors">
         {src ? (
           <Image
